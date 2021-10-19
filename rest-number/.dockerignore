@@ -3,3 +3,4 @@
 !target/*-runner.jar
 !target/lib/*
 !target/quarkus-app/*
+!target/rest-number-1.0.0-SNAPSHOT.jar
