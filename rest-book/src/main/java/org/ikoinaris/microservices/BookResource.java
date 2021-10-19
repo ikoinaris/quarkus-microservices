@@ -1,5 +1,7 @@
 package org.ikoinaris.microservices;
 
+import org.eclipse.microprofile.openapi.annotations.Operation;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -11,6 +13,7 @@ public class BookResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Operation(summary = "Creates new book")
     public Response createBook(@FormParam("title") String title,
                                @FormParam("author") String author,
                                @FormParam("year") int yearOfPublication,
