@@ -19,7 +19,7 @@ public class Book {
     public int yearOfPublication;
     public String genre;
     @JsonbDateFormat("yyyy/MM/dd")
-    @JsonbProperty("creation_Date")
+    @JsonbProperty("creation_date")
     @Schema(implementation = String.class, format = "date")
     public Instant creationDate;
 
