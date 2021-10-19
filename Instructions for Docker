@@ -1,0 +1,6 @@
+Build and Run docker images (template for Book Microservice)
+
+1) add !target/rest-book-1.0.0-SNAPSHOT.jar to dockerignore file
+2) $ mvn clean package
+3) $ docker build -t rest-book .
+4) $ docker run -dp 8072:8072 rest-book
