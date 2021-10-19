@@ -1,6 +1,7 @@
 package org.ikoinaris.microservices;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -9,6 +10,9 @@ import java.time.Instant;
 
 @Path("/api/books")
 public class BookResource {
+
+    @RestClient
+    NumberProxy numberProxy;
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -19,7 +23,7 @@ public class BookResource {
                                @FormParam("year") int yearOfPublication,
                                @FormParam("genre") String genre) {
         Book book = new Book();
-        book.isbn13 = "13- We get it from Number Microservice";
+        book.isbn13 = numberProxy.generateIsbnNumbers().isbn13;
         book.title = title;
         book.author = author;
         book.yearOfPublication = yearOfPublication;
